@@ -6,7 +6,7 @@ namespace ControleContasWeb.Data
     public class Contas
     {
 
-        public int IdConta { get; set; }
+        public int Id { get; set; }
         public DateTime DataLeitura { get; set; }
         public long NumLeitura { get; set; }
         public long Consumo { get; set; }

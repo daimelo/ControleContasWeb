@@ -1,0 +1,6 @@
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ConnectionClass\bin\Debug\ConnectionClass.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ConnectionClass\bin\Debug\ConnectionClass.pdb
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ConnectionClass\bin\Debug\mysql.data.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ConnectionClass\obj\Debug\ConnectionClass.csprojResolveAssemblyReference.cache
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ConnectionClass\obj\Debug\ConnectionClass.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ConnectionClass\obj\Debug\ConnectionClass.pdb

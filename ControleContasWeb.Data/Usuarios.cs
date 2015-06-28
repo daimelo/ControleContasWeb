@@ -13,7 +13,7 @@ namespace ControleContasWeb.Data
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Senha { get; set; }
-        public UsuariosGrupo IdGrupo { get; set; }
+        public UsuariosGrupo Grupo { get; set; }
 
     }
 }

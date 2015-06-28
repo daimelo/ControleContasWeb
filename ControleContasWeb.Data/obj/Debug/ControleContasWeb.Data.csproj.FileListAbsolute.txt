@@ -1,0 +1,8 @@
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Data\bin\Debug\ControleContasWeb.Data.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Data\bin\Debug\ControleContasWeb.Data.pdb
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Data\bin\Debug\ConnectionClass.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Data\bin\Debug\MySql.Data.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Data\bin\Debug\ConnectionClass.pdb
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Data\obj\Debug\ControleContasWeb.Data.csprojResolveAssemblyReference.cache
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Data\obj\Debug\ControleContasWeb.Data.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Data\obj\Debug\ControleContasWeb.Data.pdb
