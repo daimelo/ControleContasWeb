@@ -13,6 +13,7 @@ namespace ControleContasWeb.Data
         public decimal ValorPagar { get; set; }
         public DateTime DataPagto { get; set; }
         public ContasTipo Tipo { get; set; }
+        public int IdUsuario { get; set; }
 
     }
 }

@@ -1,0 +1,31 @@
+﻿@model IEnumerable<ControleContasWeb.Data.ContasTipo>
+
+
+@{
+    ViewBag.Title = "Tipos";
+}
+ 
+<br>
+<h1>Cadastro de Tipo de Conta</h1>
+<br />
+<table class="table">
+
+    @foreach (var tipo in Model)
+    {
+        <tr>
+            <td>@tipo.Tipo</td>
+            <td>@Html.ActionLink("Editar", "EditTipo", new { id = tipo.Id }) |</td>
+            <td>@Html.ActionLink("Excluir", "DeleteTipe", new { id = tipo.Id })</td>
+        </tr>
+    }
+</table>
+
+<div>
+    @Html.ActionLink("Cadastrar Novo Tipo de Conta", "CreateTipo")
+</div>
+
+<br>
+
+<div>
+    @Html.ActionLink("Voltar", "Create")
+</div>

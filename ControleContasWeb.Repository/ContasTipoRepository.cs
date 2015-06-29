@@ -49,7 +49,10 @@ namespace ControleContasWeb.Repository
             MySqlDataReader dr = ConnControleContas.Get(sql.ToString());
             while (dr.Read())
             {
-                tipos.Add(new ContasTipo { Tipo = (string)dr["nome"] });
+                tipos.Add(new ContasTipo {
+                    Id = (int)dr["id"],
+                    Tipo = (string)dr["nome"]
+                });
             }
 
             return tipos;
@@ -60,10 +63,9 @@ namespace ControleContasWeb.Repository
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            sql.Append("INSERT INTO contas_tipo (id, nome) ");
-            sql.Append("VALUES(@id, @nome)");
+            sql.Append("INSERT INTO contas_tipo (nome) ");
+            sql.Append("VALUES (@nome)");
 
-            cmd.Parameters.AddWithValue("@id", pTipo.Id);
             cmd.Parameters.AddWithValue("@nome", pTipo.Tipo);
 
             cmd.CommandText = sql.ToString();

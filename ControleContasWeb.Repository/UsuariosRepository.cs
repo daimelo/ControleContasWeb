@@ -3,9 +3,8 @@ using ControleContasWeb.Data;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Web;
 
 namespace ControleContasWeb.Repository
 {
@@ -22,6 +21,34 @@ namespace ControleContasWeb.Repository
             sql.Append("INNER JOIN usuarios_grupo g ");
             sql.Append("ON u.id_grupo=g.id ");
             sql.Append("WHERE u.id" + pId);
+
+            MySqlDataReader dr = ConnControleContas.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                usuario.Id = (int)dr["id"];
+                usuario.Nome = (string)dr["nome"];
+                usuario.Email = (string)dr["email"];
+                usuario.Senha = (string)dr["senha"];
+                usuario.Grupo = new UsuariosGrupo
+                {
+                    Id = (int)dr["id"],
+                    Grupo = (string)dr["nome"],
+                };
+            }
+            return usuario;
+        }
+
+        public Usuarios GetByEmail(string pEmail)
+        {
+            StringBuilder sql = new StringBuilder();
+            Usuarios usuario = new Usuarios();
+
+            sql.Append("SELECT u.*, g.nome ");
+            sql.Append("FROM usuarios u ");
+            sql.Append("INNER JOIN usuarios_grupo g ");
+            sql.Append("ON u.id_grupo=g.id ");
+            sql.Append("WHERE u.email='" + pEmail+"'");
 
             MySqlDataReader dr = ConnControleContas.Get(sql.ToString());
 
@@ -117,6 +144,23 @@ namespace ControleContasWeb.Repository
 
             cmd.CommandText = sql.ToString();
             ConnControleContas.CommandPersist(cmd);
+        }
+
+        public bool Valida(Usuarios usuario)
+        {
+            string sql = "SELECT * FROM usuarios WHERE email='" + usuario.Email + "' AND senha='" + usuario.Senha + "'";
+
+            MySqlDataReader dr;
+            dr = ConnControleContas.Get(sql);
+
+            if (dr.HasRows)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }         
         }
 
     }

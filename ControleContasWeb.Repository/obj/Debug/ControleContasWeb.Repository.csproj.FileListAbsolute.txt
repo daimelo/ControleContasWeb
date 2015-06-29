@@ -1,1 +1,10 @@
 C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\obj\Debug\ControleContasWeb.Repository.csprojResolveAssemblyReference.cache
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\bin\Debug\ControleContasWeb.Repository.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\bin\Debug\ControleContasWeb.Repository.pdb
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\bin\Debug\ConnectionClass.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\bin\Debug\ControleContasWeb.Data.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\bin\Debug\mysql.data.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\bin\Debug\ConnectionClass.pdb
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\bin\Debug\ControleContasWeb.Data.pdb
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\obj\Debug\ControleContasWeb.Repository.dll
+C:\Users\Indaiá Melo\Documents\GitHub\ControleContasWeb\ControleContasWeb.Repository\obj\Debug\ControleContasWeb.Repository.pdb
