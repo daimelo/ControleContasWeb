@@ -1,0 +1,8 @@
+﻿@{
+    if (@Model == "Administrador")
+    {
+        @Html.ActionLink("Cadastrar Usuários", "CreateUsuarios", "", new { @class = "btn btn-default" }) <br>
+        @Html.ActionLink("Cadastrar Contas", "Create", "", new { @class = "btn btn-default" }) <br> 
+        @Html.ActionLink("Pesquisar", "Pesquisar", "", new { @class = "btn btn-default" })
+    }
+}

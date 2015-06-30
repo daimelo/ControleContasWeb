@@ -44,7 +44,7 @@ namespace ControleContasWeb.Repository
             StringBuilder sql = new StringBuilder();
             Usuarios usuario = new Usuarios();
 
-            sql.Append("SELECT u.*, g.nome ");
+            sql.Append("SELECT u.*, g.id as grupo_id, g.nome as grupo_nome ");
             sql.Append("FROM usuarios u ");
             sql.Append("INNER JOIN usuarios_grupo g ");
             sql.Append("ON u.id_grupo=g.id ");
@@ -60,8 +60,8 @@ namespace ControleContasWeb.Repository
                 usuario.Senha = (string)dr["senha"];
                 usuario.Grupo = new UsuariosGrupo
                 {
-                    Id = (int)dr["id"],
-                    Grupo = (string)dr["nome"],
+                    Id = (int)dr["grupo_id"],
+                    Grupo = (string)dr["grupo_nome"],
                 };
             }
             return usuario;
