@@ -80,7 +80,7 @@ namespace ControleContasWeb.Repository
             return contas;
         }
 
-        public static List<Contas> GetBySearch(int pIdUsuario, DateTime dataInicial, DateTime dataFim)
+        public static List<Contas> GetBySearch(Int32 IdUsuario, DateTime dataInicial, DateTime dataFim)
         {
             StringBuilder sql = new StringBuilder();
             List<Contas> contas = new List<Contas>();
@@ -89,7 +89,7 @@ namespace ControleContasWeb.Repository
             sql.Append("FROM contas c ");
             sql.Append("INNER JOIN contas_tipo t ");
             sql.Append("ON c.id_tipo=t.id ");
-            sql.Append("WHERE c.id_usuario='" + pIdUsuario + "' AND c.data_leitura BETWEEN '" + Convert.ToDateTime(dataInicial).ToString("yyyy/MM/dd") + "' AND '" + Convert.ToDateTime(dataFim).ToString("yyyy/MM/dd") + "'");
+            sql.Append("WHERE c.id_usuario='" + IdUsuario + "' AND c.data_leitura BETWEEN '" + Convert.ToDateTime(dataInicial).ToString("yyyy/MM/dd") + "' AND '" + Convert.ToDateTime(dataFim).ToString("yyyy/MM/dd") + "'");
             sql.Append("ORDER BY c.data_leitura ASC");
 
             MySqlDataReader dr = ConnControleContas.Get(sql.ToString());
