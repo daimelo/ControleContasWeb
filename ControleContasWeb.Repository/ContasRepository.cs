@@ -12,6 +12,37 @@ namespace ControleContasWeb.Repository
     public class ContasRepository
     {
 
+        public static Contas GetOne(int pId, int pIdUsuario)
+        {
+            StringBuilder sql = new StringBuilder();
+            Contas conta = new Contas();
+
+            sql.Append("SELECT c.*, t.id as id_tipo, t.nome as nome_tipo ");
+            sql.Append("FROM contas c ");
+            sql.Append("INNER JOIN contas_tipo t ");
+            sql.Append("ON c.id_tipo=t.id ");
+            sql.Append("WHERE c.id=" + pId + " AND c.id_usuario='" + pIdUsuario +"'");
+
+            MySqlDataReader dr = ConnControleContas.Get(sql.ToString());
+
+            while (dr.Read())
+            {
+                conta.Id = (int)dr["id"];
+                conta.DataLeitura = (DateTime)dr["data_leitura"];
+                conta.NumLeitura = (long)dr["num_leitura"];
+                conta.Consumo = (long)dr["consumo"];
+                conta.ValorPagar = (decimal)dr["valor_pagar"];
+                conta.DataPagto = (DateTime)dr["data_pagto"];
+                conta.Tipo = new ContasTipo
+                {
+                    Id = (int)dr["id_tipo"],
+                    Tipo = (string)dr["nome_tipo"],
+                };
+                conta.IdUsuario = (int)dr["id_usuario"];
+            }
+            return conta;
+        }
+
         public static List<Contas> GetAll(int pIdUsuario)
         {
             StringBuilder sql = new StringBuilder();
@@ -99,7 +130,7 @@ namespace ControleContasWeb.Repository
             cmd.Parameters.AddWithValue("@consumo", pConta.Consumo);
             cmd.Parameters.AddWithValue("@valor_pagar", pConta.ValorPagar);
             cmd.Parameters.AddWithValue("@data_pagto", Convert.ToDateTime(pConta.DataPagto).ToString("yyyy/MM/dd"));
-            cmd.Parameters.AddWithValue("@id_tipo", pConta.Tipo);
+            cmd.Parameters.AddWithValue("@id_tipo", pConta.Tipo.Id);
             cmd.Parameters.AddWithValue("@id_usuario", pConta.IdUsuario);
 
             cmd.CommandText = sql.ToString();
@@ -111,7 +142,7 @@ namespace ControleContasWeb.Repository
             StringBuilder sql = new StringBuilder();
             MySqlCommand cmd = new MySqlCommand();
 
-            sql.Append("UPDATE contas SET data_leitura=@data_leitura, num_leitura=@num_leitura, consumo=@cosumo, valor_pagar=@valor_pagar, data_pagto=@data_pagto, id_tipo=@id_tipo, id_usuario=@id_usuario ");
+            sql.Append("UPDATE contas SET data_leitura=@data_leitura, num_leitura=@num_leitura, consumo=@consumo, valor_pagar=@valor_pagar, data_pagto=@data_pagto, id_tipo=@id_tipo, id_usuario=@id_usuario ");
             sql.Append("WHERE id=" + pConta.Id);
 
             cmd.Parameters.AddWithValue("@data_leitura", Convert.ToDateTime(pConta.DataLeitura).ToString("yyyy/MM/dd"));
@@ -119,7 +150,7 @@ namespace ControleContasWeb.Repository
             cmd.Parameters.AddWithValue("@consumo", pConta.Consumo);
             cmd.Parameters.AddWithValue("@valor_pagar", pConta.ValorPagar);
             cmd.Parameters.AddWithValue("@data_pagto", Convert.ToDateTime(pConta.DataPagto).ToString("yyyy/MM/dd"));
-            cmd.Parameters.AddWithValue("@id_tipo", pConta.Tipo);
+            cmd.Parameters.AddWithValue("@id_tipo", pConta.Tipo.Id);
             cmd.Parameters.AddWithValue("@id_usuario", pConta.IdUsuario);
 
             cmd.CommandText = sql.ToString();

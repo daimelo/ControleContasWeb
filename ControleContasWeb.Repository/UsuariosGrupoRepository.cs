@@ -49,7 +49,7 @@ namespace ControleContasWeb.Repository
             MySqlDataReader dr = ConnControleContas.Get(sql.ToString());
             while (dr.Read())
             {
-                grupos.Add(new UsuariosGrupo { Grupo = (string)dr["nome"] });
+                grupos.Add(new UsuariosGrupo { Id = (int)dr["id"], Grupo = (string)dr["nome"] });
             }
 
             return grupos;

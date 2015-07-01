@@ -111,7 +111,7 @@ namespace ControleContasWeb.Repository
             cmd.Parameters.AddWithValue("@nome", pUsuario.Nome);
             cmd.Parameters.AddWithValue("@email", pUsuario.Email);
             cmd.Parameters.AddWithValue("@senha", pUsuario.Senha);
-            cmd.Parameters.AddWithValue("@id_grupo", pUsuario.Grupo);
+            cmd.Parameters.AddWithValue("@id_grupo", pUsuario.Grupo.Id);
 
             cmd.CommandText = sql.ToString();
             ConnControleContas.CommandPersist(cmd);
