@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ControleContasWeb.Data.Contas>
+
+@{
+    ViewBag.Title = "Home";
+}
+<br>
+@Html.Partial("_Menus", (string)@ViewBag.GrupoUsuario)
+
+<h4>Olá, @Html.Partial("_Usuario", (string)@ViewBag.GrupoUsuario) <strong>@Html.Partial("_Usuario", (string) @ViewBag.IdUsuario)!</strong></h4>
+  
+<br>
+
+<h1 class="text-center">Listagem de Contas</h1>
+
+<table class="table">
+    <tr>
+        <th>Tipo de Conta</th>
+        <th>Data de Leitura</th>
+        <th>Consumo</th>
+        <th>Valor a Pagar</th>
+        <th>Data de Pagamento</th>
+        <th></th>
+        <th></th>
+    </tr>
+
+    @{
+        decimal totalAPagar = 0;
+
+    }
+
+    @foreach (var conta in Model)
+    {
+        <tr>
+            <td>@conta.Tipo.Tipo</td>
+            <td>@conta.DataLeitura.ToShortDateString()</td>
+            <td>@conta.Consumo</td>
+            <td>@conta.ValorPagar</td>
+            <td>@conta.DataPagto.ToShortDateString()</td>
+            <td>@Html.ActionLink("Editar", "Edit", new { id = conta.Id })</td>
+            <td>@Html.ActionLink("Excluir", "Delete", new { id = conta.Id })</td>
+        </tr>
+
+        totalAPagar = totalAPagar + conta.ValorPagar;
+    }
+
+    <tr>
+        <td></td>
+        <td></td>
+        <td><strong>Total a pagar</strong></td>
+        <td>@totalAPagar</td>
+        <td></td>
+        <td></td>
+    </tr>
+</table>
+<br />
+<h3>Pesquisar por período</h3></div>
+
+<form action="/Home/Pesquisar" method="post">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="DataLeitura">Data inicial</label>
+                    <input style="width: 100px;" class="form-control" id="DataLeitura" type="datetime" name="dataInicio" placeholder="__/__/____" required />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="DataPagto">Data final</label>
+                    <input style="width: 100px;" class="form-control" id="DataPagto" type="datetime" name="dataFim" placeholder="__/__/____" required />
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <br>
+                    <input class="form-control" type="submit" name="pesquisar" value="Pesquisar" />
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+
+

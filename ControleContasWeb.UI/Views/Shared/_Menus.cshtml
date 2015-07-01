@@ -1,0 +1,24 @@
+﻿@{
+    if (@Model == "Administrador")
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7"></div>
+                <div class="col-md-2">@Html.ActionLink("Cadastrar Usuários", "CreateUsuarios", "", new { @class = "btn btn-default" })</div> 
+                <div class="col-md-2">@Html.ActionLink("Cadastrar Contas", "Create", "", new { @class = "btn btn-default" })</div> 
+                <div class="col-md-1">@Html.ActionLink("Sair", "Index", "", new { @class = "btn btn-default" })</div>
+            </div>
+        </div>
+    }
+    
+    if (@Model == "Usuario")
+    {
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9"></div>
+                <div class="col-md-2">@Html.ActionLink("Cadastrar Contas", "Create", "", new { @class = "btn btn-default" })</div> 
+                <div class="col-md-1">@Html.ActionLink("Sair", "Index", "", new { @class = "btn btn-default" })</div>
+            </div>
+        </div>
+    }
+}
